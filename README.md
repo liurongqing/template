@@ -1,13 +1,9 @@
-## 使用 phaser3 + es6 + webpack4.x 开发
+## 使用 phaser3 + es6 + webpack4.8.1 开发
 
 ![build passing version](https://img.shields.io/badge/build-passing-brightgreen.svg)
-
 ![node version](https://img.shields.io/badge/node-v9.2.0-brightgreen.svg)
-
 ![phaser version](https://img.shields.io/badge/phaser-v3.7.1-brightgreen.svg)
-
 ![webpack version](https://img.shields.io/badge/webpack-v4.8.1-blue.svg)
-
 ![license MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 
