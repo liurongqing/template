@@ -3,7 +3,6 @@ import 'phaser'
 // 引入所有场景
 import scenes from './scenes'
 
-
 // 场景转成数组
 let scene = [];
 for (let i in scenes) {

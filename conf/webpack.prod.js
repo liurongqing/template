@@ -4,10 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const config = {
-    entry: './src/index.js',
+    entry: {
+        vendors: ["phaser"],
+        app: './src/index.js'
+    },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name]_[hash:8].js'
+        filename: '[name]_[hash:8].js',
+        chunkFilename:'[name]_[contenthash:8].js'
     },
     module: {
         rules: [
@@ -41,8 +45,9 @@ const config = {
             WEBGL_RENDERER: true,
             CANVAS_RENDERER: true
         }),
-        new CleanPlugin('dist', { root: path.resolve(__dirname,'../'), verbose: true }),
+        new CleanPlugin('dist', { root: path.resolve(__dirname, '../'), verbose: true }),
         new UglifyJsPlugin({
+            exclude: /node_modules/,
             uglifyOptions: {
                 output: {
                     comments: false
@@ -67,6 +72,19 @@ const config = {
             }
         })
     ],
+    optimization: {
+        splitChunks: {
+            minSize: 30000,
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: "all",
+                    reuseExistingChunk: true
+                }
+            }
+        }
+    },
     mode: 'production'
 }
 
