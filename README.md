@@ -25,7 +25,9 @@ npm start
 ## 发布生产
 
 ```javascript
-npm run prod // 生成到根目录下的 dist 目录中
+
+// 生成到根目录下的 dist 目录中
+npm run prod 
 ```
 
 
